@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSOL AI</title>
+    <link rel="stylesheet" href="css/odometer-theme-minimal.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/odometer.min.js"></script>
+</head>
+<body>
+    <div id="landing-page" class="page">
+        
+        <div class="container">
+            <div id="welcome-text" class="welcome-text"></div>
+            <button id="enter-btn" class="enter-btn">Enter to tell what happened'</button>
+        </div>
+        <pre id="doors" class="doors">                          
+            ⠀⠀⠀⠀⡠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⢀⠎⠀⠈⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠔⠁⠀⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⡎⠀⠀⠀⠀⠑⡄⠀⠀⢠⠀⣤⡄⠀⠀⠀⠀⠀⠀⠀⢠⠊⠀⠀⠀⠀⠈⡄⠀⠀⠀⠀⠀⣠⣤⣤⣤⢄⠀⠀
+            ⠀⢰⠁⠀⠀⠀⠀⠀⠈⠢⡀⠈⡄⠀⠀⠉⠒⠄⡀⠀⠀⡠⠃⠀⠀⠀⠀⠀⠀⢃⠀⠀⠀⣴⣯⠟⠛⠻⡝⡗⡀⠀
+            ⠀⡌⠀⠀⠀⠀⠀⠀⠀⠀⠘⢄⡸⠦⠄⠀⠀⠀⠈⠢⡎⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠘⠿⠃⠀⠀⠀⠀⣿⣷
+            ⠀⡇⠀⠀⠀⠀⠀⠀⠀⢴⣊⣁⣀⣀⠤⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣿⡿
+            ⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⠀⠀⠀⠀⠀⠀⣞⣿⢟⠁
+            ⠀⠈⢆⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⡤⠤⢤⠤⠄⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⣼⣿⠀⠀⠀⠀
+            ⡀⠀⠈⢆⠀⠈⡟⠁⠈⣿⣿⣿⠁⠀⠀⠀⠀⢸⣿⣿⣷⠀⠀⡇⠀⠀⢀⠜⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀
+            ⠻⡐⠒⠚⠓⠠⡅⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠸⣿⣿⡏⠀⠀⣜⠀⠀⠉⠁⡼⠀⠀⠀⠀⠀⠀⠉⠁⠀⠀⠀⠀⠀
+            ⠀⠣⣀⡀⠀⠀⢧⠀⠀⠹⣿⠟⠀⣤⣀⠀⠀⠀⠻⠛⠁⠀⠀⠛⡀⠀⣠⠔⠁⠀⠀⠀⠀⠀⠀⣿⡟⠀⠀⠀⠀⠀
+            ⠀⠀⢠⠃⠘⠹⠔⠓⠀⠀⠀⢀⠀⠀⢀⠀⠀⣠⠀⠀⠀⠚⠭⠚⠁⠀⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⢠⣃⣀⣀⣄⠀⠀⠀⠀⠀⠈⠑⠊⠁⠉⠉⠀⠀⠀⠀⠀⢀⡠⠤⠀⠤⠤⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠉⠒⡦⠤⢀⣀⠀⠀⠀⠀⠀⠀⠀⠐⢒⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣎⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⡸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
+    </div>
+
+    <div id="loading-screen" class="loading-screen hidden">
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+            <div id="progress-text" class="progress-text">0%</div>
+        </div>
+    </div>
+
+    <div id="ametra-creation" class="page hidden">
+        <button id="playground-btn" class="playground-btn">Playground</button>
+        <a href="https://x.com/dr_out_" target="_blank">
+            <button id="twitter-btn" class="social-btn">Twitter</button>
+        </a>
+        <pre id="ametra-ascii" class="ametra-ascii"></pre>
+        <div class="ametra-interaction">
+            <div id="ametra-intro" class="ametra-intro"></div>
+            <div id="user-input-container" class="user-input-container hidden">
+                <input type="text" id="user-input" class="user-input" placeholder="Type your response...">
+                <button id="submit-btn" class="submit-btn">Submit</button>
+            </div>
+            <div id="ametra-response" class="ametra-response"></div>
+        </div>
+    </div>
+    
+
+    <div id="playground-page" class="page hidden">
+        <button id="playground-back-btn" class="nav-btn">Back</button>
+        <div class="crypto-stats">
+            <div class="crypto-label">Market Cap</div>
+            <div class="price-container">
+                <div id="btc-price-current" class="odometer"></div>
+            </div>
+            <div class="coin-address"></div>
+        </div>
+        <div class="milestones">
+            <h3>Milestones</h3>
+            <div class="milestones-container">
+                <div class="milestone">
+                    <div class="milestone-label">Hint 1 (100K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint1-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 2 (200K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint2-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 3 (300K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint3-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 4 (400K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint4-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 5 (500K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint5-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 6 (600K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint6-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 7 (700K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint7-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 8 (800K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint8-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Hint 9 (900K MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="hint9-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Creating Of The Deep SOL (1M MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="ametra-calling-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Downfall Lore (2M MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="ametra-departure-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Conscious Shift (3M MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="conscious-shift-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Whitepaper 2.0 (4M MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="whitepaper-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">Solana's Ascension (5M MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="ametra-ascension-progress"></div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-label">AI Development (20M MC)</div>
+                    <div class="milestone-progress">
+                        <div class="milestone-bar" id="ametra-ai-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Letters Container -->
+        <div class="letters-container">
+            <div id="hint1-letter" class="big-letter">H</div>
+            <div id="hint2-letter" class="big-letter">I</div>
+            <div id="hint3-letter" class="big-letter">��&nbsp;</div>
+            <div id="hint4-letter" class="big-letter">C</div>
+            <div id="hint5-letter" class="big-letter">L</div>
+            <div id="hint6-letter" class="big-letter">A</div>
+            <div id="hint7-letter" class="big-letter">U</div>
+            <div id="hint8-letter" class="big-letter">D</div>
+            <div id="hint9-letter" class="big-letter">E</div>
+        </div>
+    </div>
+
+    <audio id="background-audio" src="media/15%20Minutes%20of%20Soothing%20Nebula-Inspired%20Instrumental%20Music%20%20Relax%252C%20Meditate%252C%20Unwind%20%20Nebula%20energy.mp3"></audio>
+    <script src="js/script.js"></script>
+
+
+</body></html>
